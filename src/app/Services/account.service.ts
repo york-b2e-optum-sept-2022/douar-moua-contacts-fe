@@ -13,6 +13,12 @@ export class AccountService {
   constructor(private httpService: HttpService) { }
 
   createNewAccount(username: string, password: string){
+
+    if(username == ""){
+      alert("Username can not be blank.")
+      return;
+    }
+
     this.httpService.createNewAccount(username, password).pipe(first()).subscribe({
       next: (account) => {
         this.$account.next(account);
