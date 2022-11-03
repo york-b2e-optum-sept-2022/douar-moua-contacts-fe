@@ -1,19 +1,28 @@
 <!--<h1 class="text-center m-5">Manage Contacts</h1>-->
 <div class="d-flex justify-content-center">
+
   <div class="card shadow m-5 col-4">
+
     <div class="card-header text-center bg-primary bg-opacity-50">
-      <h4>Login Now to Manage Contacts</h4>
+      <h4>Create an Account</h4>
     </div>
+
     <div class="card-body m-3 text-center">
       <input
         style="margin-right: 1rem; text-align: center"
-        placeholder="Username">
+        placeholder="Username"
+        [(ngModel)]="newAccount.username"
+      >
       <input
         style="text-align: center"
-        placeholder="Password">
+        placeholder="Password"
+        [(ngModel)]="newAccount.password"
+      >
     </div>
+
     <div class="card-footer text-center">
-      <button class="btn btn-primary">Login</button>
+      <button class="btn btn-primary" (click)="createNewAccount()">Create Account</button>
     </div>
+
   </div>
 </div>
