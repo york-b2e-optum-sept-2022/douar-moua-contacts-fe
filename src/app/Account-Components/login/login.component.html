@@ -7,10 +7,14 @@
     <div class="card-body m-3 text-center">
       <input
         style="margin-right: 1rem; text-align: center"
-        placeholder="Username">
+        placeholder="Username"
+        [(ngModel)]="username"
+      >
       <input
         style="text-align: center"
-        placeholder="Password">
+        placeholder="Password"
+        [(ngModel)]="password"
+      >
     </div>
     <div class="card-footer text-center">
       <button class="btn btn-success" (click)="onLoginClick()">Login</button>
