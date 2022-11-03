@@ -16,5 +16,6 @@ export class LoginComponent {
 
   onLoginClick() {
     console.log(this.username, this.password)
+    this.accountService.login(this.username, this.password)
   }
 }
