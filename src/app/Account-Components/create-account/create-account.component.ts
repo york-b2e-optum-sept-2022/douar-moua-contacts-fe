@@ -9,10 +9,8 @@ import {IAccount} from "../../Interfaces/IAccount";
 })
 export class CreateAccountComponent implements OnInit {
 
-  newAccount: IAccount = {
-    username: "",
-    password: ""
-  }
+  username: string = ""
+  password: string = ""
 
   constructor(private accountService: AccountService) { }
 
@@ -20,6 +18,6 @@ export class CreateAccountComponent implements OnInit {
   }
 
   createNewAccount() {
-    console.log(this.newAccount)
+    this.accountService.createNewAccount(this.username, this.password)
   }
 }
