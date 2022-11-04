@@ -1,2 +1,9 @@
-<app-login></app-login>
-<app-create-account></app-create-account>
+<div *ngIf="isLoggedIn == false">
+  <app-login></app-login>
+  <app-create-account></app-create-account>
+</div>
+
+<div *ngIf="isLoggedIn == true">
+  <app-contact></app-contact>
+</div>
+

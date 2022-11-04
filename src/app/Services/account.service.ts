@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 import {IAccount} from "../Interfaces/IAccount";
-import {BehaviorSubject, first} from "rxjs";
+import {BehaviorSubject, first, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ export class AccountService {
 
   $newAccount = new BehaviorSubject<IAccount | null> (null);
   $currentUser = new BehaviorSubject<IAccount | null>(null)
-  $isLoggedIn = new BehaviorSubject<boolean>(true)
+  isLoggedIn: boolean = true
+  $isLoggedIn = new Subject<boolean>()
 
   constructor(private httpService: HttpService) { }
 
@@ -39,6 +40,7 @@ export class AccountService {
     this.httpService.login(username, password).pipe(first()).subscribe({
       next: (account) => {
         console.log(account)
+        this.$isLoggedIn.next(this.isLoggedIn)
         this.$currentUser.next(account)
       },
       error: (err) => {
