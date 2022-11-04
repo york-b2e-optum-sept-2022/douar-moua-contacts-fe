@@ -10,6 +10,7 @@ export class AccountService {
 
   $newAccount = new BehaviorSubject<IAccount | null> (null);
   $currentUser = new BehaviorSubject<IAccount | null>(null)
+
   isLoggedIn: boolean = true
   $isLoggedIn = new Subject<boolean>()
 
@@ -17,8 +18,8 @@ export class AccountService {
 
   createNewAccount(username: string, password: string){
 
-    if(username == ""){
-      alert("Username can not be blank.")
+    if(username == "" || password == ""){
+      alert("Username and password can not be blank.")
       return;
     }
 
@@ -37,6 +38,12 @@ export class AccountService {
   }
 
   login(username: string, password: string){
+
+    if (username == "" || password == ""){
+      alert("Username and password can not be blank.")
+      return;
+    }
+
     this.httpService.login(username, password).pipe(first()).subscribe({
       next: (account) => {
         console.log(account)
@@ -48,5 +55,8 @@ export class AccountService {
         alert("Invalid login credentials, please try again.");
       }
     })
-  }
+
+  };
+
+
 }
