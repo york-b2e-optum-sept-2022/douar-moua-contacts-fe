@@ -39,6 +39,8 @@ export class AccountService {
     this.httpService.createNewAccount(username, password).pipe(first()).subscribe({
       next: (account) => {
         this.$newAccount.next(account);
+        alert("Success! Login with your new account now!")
+        this.$isCreatingAccount.next(!this.isCreatingAccount)
       },
       error: (err) => {
         if (err.status === 409){
