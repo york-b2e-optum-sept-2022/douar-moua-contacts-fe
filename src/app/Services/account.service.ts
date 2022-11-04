@@ -63,7 +63,6 @@ export class AccountService {
 
     this.httpService.login(username, password).pipe(first()).subscribe({
       next: (account) => {
-        console.log(account)
         this.$isLoggedIn.next(this.isLoggedIn)
         this.$currentUser.next(account)
       },
