@@ -19,10 +19,12 @@ export class AccountService {
 
   constructor(private httpService: HttpService) { }
 
+  //toggle create account from login
   creatingAccount(){
     this.$isCreatingAccount.next(this.isCreatingAccount)
   }
 
+  //toggle login from create-account
   loggingIn(){
     this.$isCreatingAccount.next(!this.isCreatingAccount)
   }
