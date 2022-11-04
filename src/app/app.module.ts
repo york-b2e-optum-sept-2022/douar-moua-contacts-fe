@@ -8,13 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateAccountComponent } from './Account-Components/create-account/create-account.component';
 import { LoginComponent } from './Account-Components/login/login.component';
 import { ContactComponent } from './Contact-Components/contact/contact.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateAccountComponent,
     LoginComponent,
-    ContactComponent
+    ContactComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
