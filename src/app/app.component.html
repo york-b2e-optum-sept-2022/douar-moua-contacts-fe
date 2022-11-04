@@ -1,9 +1,8 @@
 <app-nav-bar></app-nav-bar>
 
-<div *ngIf="isLoggedIn == false">
-  <app-login></app-login>
-  <app-create-account></app-create-account>
-</div>
+<app-login *ngIf="isLoggedIn == false && isCreatingAccount == false"></app-login>
+<app-create-account *ngIf="isLoggedIn == false && isCreatingAccount == true"></app-create-account>
+
 
 <div *ngIf="isLoggedIn == true">
   <app-contact></app-contact>

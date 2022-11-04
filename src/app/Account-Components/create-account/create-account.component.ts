@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountService} from "../../Services/account.service";
-import {IAccount} from "../../Interfaces/IAccount";
+import {IAccount} from "../../_Interfaces/IAccount";
 
 @Component({
   selector: 'app-create-account',

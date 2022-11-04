@@ -13,14 +13,22 @@ export class AppComponent implements OnDestroy {
   isLoggedIn: boolean = false
   loginSub: Subscription;
 
+  isCreatingAccount: boolean = false
+  creatingAccountSub: Subscription;
+
   constructor(private accountService: AccountService) {
 
     this.loginSub = this.accountService.$isLoggedIn.subscribe(
       (isLogin: boolean) => {this.isLoggedIn = isLogin}
     )
+
+    this.creatingAccountSub = this.accountService.$isCreatingAccount.subscribe(
+      (isCreating: boolean) => {this.isCreatingAccount = isCreating}
+    )
   }
 
   ngOnDestroy(){
     this.loginSub.unsubscribe()
+    this.creatingAccountSub.unsubscribe()
   }
 }
