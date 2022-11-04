@@ -16,4 +16,9 @@ export class HttpService {
       password: password}
     ) as Observable<IAccount>
   }
+
+  login(username: string, password: string) : Observable<IAccount>{
+    return this.httpClient.get(`http://localhost:8080/api/account?username=${username}&password=${password}`
+    ) as Observable<IAccount>
+  }
 }

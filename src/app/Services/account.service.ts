@@ -30,10 +30,17 @@ export class AccountService {
         }
         alert("Unable to create account. Please try again later.")
       }
-    })
+    });
   }
 
   login(username: string, password: string){
-    console.log(username, password)
+    this.httpService.login(username, password).pipe(first()).subscribe({
+      next: (account) => {
+        console.log(account)
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 }
