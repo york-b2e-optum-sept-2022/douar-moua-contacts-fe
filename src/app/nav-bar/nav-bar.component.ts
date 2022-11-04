@@ -35,6 +35,10 @@ export class NavBarComponent implements OnDestroy{
     this.accountService.loggingIn();
   }
 
+  logOutClick() {
+    this.accountService.logOut()
+  }
+
   ngOnDestroy(){
     this.loginSub.unsubscribe()
     this.creatingAccountSub.unsubscribe()

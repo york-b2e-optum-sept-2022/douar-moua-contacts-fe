@@ -1,6 +1,9 @@
 <nav class="navbar navbar-light bg-light">
+
   <h2 class="m-3 display-6">Manage Contacts</h2>
-  <div class="d-flex justify-content-end">
+
+  <div *ngIf="isLoggedIn == false" class="d-flex justify-content-end">
+
     <div  *ngIf="creatingAccount == false" class="d-flex justify-content-evenly">
       <p class="m-4">Don't Have an Account Yet?</p>
       <button
@@ -8,6 +11,7 @@
         (click)="isCreatingAccount()"
       >Create Account</button>
     </div>
+
     <div *ngIf="creatingAccount == true" class="d-flex justify-content-evenly">
       <p class="m-4">Have an Account Already?</p>
       <button
@@ -15,5 +19,16 @@
         (click)="loginToggle()"
       >Login</button>
     </div>
+
   </div>
+
+  <div *ngIf="isLoggedIn == true">
+    <div class="d-flex justify-content-evenly">
+      <button
+        class="btn btn-primary m-3"
+        (click)="logOutClick()"
+      >Log Out</button>
+    </div>
+  </div>
+
 </nav>

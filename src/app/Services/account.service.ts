@@ -29,6 +29,7 @@ export class AccountService {
     this.$isCreatingAccount.next(!this.isCreatingAccount)
   }
 
+  //create new account
   createNewAccount(username: string, password: string){
 
     if(username == "" || password == ""){
@@ -52,6 +53,7 @@ export class AccountService {
     });
   }
 
+  //validate login credentials & login
   login(username: string, password: string){
 
     if (username == "" || password == ""){
@@ -72,6 +74,11 @@ export class AccountService {
     })
 
   };
+
+  //log out
+  logOut(){
+    this.$isLoggedIn.next(!this.isLoggedIn)
+  }
 
 
 }
